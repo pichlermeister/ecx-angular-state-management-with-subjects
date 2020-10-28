@@ -8,7 +8,7 @@ import { TodosService } from './todos.service';
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
-  styleUrls: ['./todos.component.sass'],
+  styleUrls: ['./todos.component.scss'],
 })
 export class TodosComponent implements OnInit, OnDestroy {
   todos: Todo[] = SAMPLE_TODOS;
