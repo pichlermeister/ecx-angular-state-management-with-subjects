@@ -39,10 +39,7 @@ export class TodosService {
 
   remove(todo: Todo) {
     //TODO: implement remove functionality
-    // SOLUTION
-    this.todosSubject.next(
-      this.todosSubject.getValue().filter((t) => t.title != todo.title)
-    );
+    console.warn('REMOVE FUNCTIONALITY NOT YET IMPLEMENTED');
   }
 
   toggle(todo: Todo) {
