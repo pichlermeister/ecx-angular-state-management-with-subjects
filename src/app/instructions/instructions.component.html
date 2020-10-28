@@ -1,0 +1,30 @@
+<div class="card m-3">
+  <h5 class="card-header">Instructions</h5>
+  <div class="card-body">
+    This simple TODO-App will help you organize your tasks. <br />
+    However it still has some drawbacks. The state is only managed within the
+    TodosComponent. As soon as you navigate away from the TODOs tab, the
+    <strong>state is lost</strong>. What a pitty
+    <fa-icon [icon]="['far', 'sad-tear']"></fa-icon> <br />
+    Luckily you're currently learning Angular. Maybe you can support.
+    <fa-icon [icon]="['far', 'smile-beam']"></fa-icon>
+
+    <br />
+    <div class="my-4">
+      Following TODOs are open:
+      <ul>
+        <li>
+          TODOs should be preserved when navigating between "Instructions" tab
+          and "TODOs" tab. (=> use TodoService instead of internal state
+          management)
+        </li>
+        <li>Navigation should show proper status ("0/5" should be dynamic)</li>
+      </ul>
+    </div>
+    <br />
+    <p>
+      Here's a screen recording how the end result should work:
+      <img class="img-fluid" src="/assets/solution.gif" />
+    </p>
+  </div>
+</div>

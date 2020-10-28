@@ -1,0 +1,73 @@
+<div class="mt-4">
+  <p *ngIf="!!username; else notAuthenticated">
+    Hello <strong>{{ username | uppercase }}</strong
+    >! Here are your TODOs:
+  </p>
+  <ng-template #notAuthenticated>
+    <p class="alert alert-primary" role="alert">
+      You're currently <strong>not logged in</strong>. To save your status you
+      need to login!
+    </p>
+  </ng-template>
+
+  <ul class="list-group" *ngIf="todos && todos.length > 0; else noTodos">
+    <li
+      *ngFor="let todo of todos"
+      class="list-group-item list-group-item-action"
+      [ngStyle]="todo.done && { 'text-decoration-line': 'line-through' }"
+      (click)="toggle(todo)"
+    >
+      <div class="d-flex w-100 justify-content-between">
+        <span
+          ><fa-icon
+            icon="check"
+            [ngClass]="{ 'text-primary': todo.done }"
+            style="cursor: pointer"
+            (click)="toggle(todo)"
+          ></fa-icon>
+          {{ todo.title }}
+        </span>
+        <div>
+          <small class="mr-2" *ngIf="todo.doneAt"
+            >completed {{ todo.doneAt | timeago }}</small
+          >
+          <fa-icon
+            style="cursor: pointer"
+            (click)="onDelete(todo)"
+            [icon]="['fas', 'trash']"
+          ></fa-icon>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <ng-template #noTodos>
+    <h3>You don't have any TODOs yet.</h3>
+    <p>
+      Create your first todo and get productive
+      <fa-icon icon="smile-wink"></fa-icon>
+    </p>
+  </ng-template>
+
+  <form
+    class="form-inline d-flex mt-3"
+    #todoForm="ngForm"
+    (ngSubmit)="onAdd(todoForm)"
+  >
+    <input
+      type="text"
+      class="form-control flex-grow-1"
+      id="title"
+      ngModel
+      name="title"
+      required
+      placeholder="Enter TODO Title"
+    />
+    <button
+      class="btn btn-primary ml-2 w-auto"
+      type="submit"
+      [disabled]="!todoForm.valid"
+    >
+      Add
+    </button>
+  </form>
+</div>
